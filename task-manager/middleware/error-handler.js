@@ -1,5 +1,11 @@
+const {customApiError}=require('../errors/custom-error')
 const errorHandler=(err, req, res, next)=>{
-    return res.status(500).json({msg:`something went wrong, try again later`})
+    if(err instanceof customApiError){
+
+        return res.status(err.statusCode).json({msg: err.message})
+    }
+
+    res.status(500).json({msg: 'Something went wrong, please try again later'})
 
 }
 
