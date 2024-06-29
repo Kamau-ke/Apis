@@ -1,7 +1,7 @@
 const {createCustomError}=require('../errors/custom-error')
 
 const login=async (req, res)=>{
-    const {username, password}=req.body
+    const {username, password}=r
 
     if(!username || !password){
        throw new customAPIError('please provide username and password', 400)
