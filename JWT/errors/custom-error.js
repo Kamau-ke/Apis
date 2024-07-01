@@ -7,8 +7,6 @@ class customApiError extends Error{
     }
 }
 
-const createCustomError=(msg, statusCode)=>{
-    return new customApiError(msg, statusCode)
-}
 
-module.exports={customApiError, createCustomError}
+
+module.exports=customApiError
