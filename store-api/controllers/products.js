@@ -70,7 +70,7 @@ const getAllProducts=async(req, res)=>{
     }
 
     console.log(queryObject)
-    let result= await Product.find(queryObject)
+    result= await Product.find(queryObject)
 
 
     // sort
