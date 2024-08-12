@@ -9,7 +9,7 @@ const errorHandlerMiddleware=(err, req, res, next)=>{
         return res.status(err.statusCode).json({msg: err.message})
     }
 
-//    console.log(err);
+   console.log(err);
    
     res.status(StatusCodes.BAD_REQUEST).json({msg:'Something went wrong, please try again later'})
     

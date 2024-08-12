@@ -28,7 +28,7 @@ const login=async (req, res)=>{
     
     
     if(!user){
-        throw new badRequest('User does not exist')
+        throw new badRequest('Invalid credentials')
     }
 
     

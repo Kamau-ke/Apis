@@ -1,4 +1,8 @@
-const createBook=(req,res)=>{
+const Book=require('../model/books')
+
+const createBook=async (req,res)=>{
+    console.log(req.body);
+    const book=await Book.create({...req.body})
     res.send('Add new book')
 }
 
