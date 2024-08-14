@@ -2,6 +2,7 @@ const express=require('express')
 const router=express.Router()
 const {createBook,
     getAllBooks,
+    getAllBooksMix,
     getBook,
     editBook,
     deleteBook}=require('../controllers/books')
