@@ -1,5 +1,7 @@
 const badRequest=require('../errors/badRequest')
+const cloudinary=require('cloudinary').v2
 const path=require('path')
+const fs=require('fs')
 const fileUpload= async(req, res)=>{  
     if(!req.files){
      throw new badRequest('No file uploaded')
@@ -26,4 +28,24 @@ const fileUpload= async(req, res)=>{
     return res.status(200).json({image:{src: `/uploads/${productImage.name}`}})
 }
 
-module.exports=fileUpload
+const uploadProductImage=async (req, res)=>{
+    try {
+        const result=await cloudinary.uploader.upload(
+            req.files.image.tempFilePath,
+            {
+                use_filename:true,
+                folder:'file-upload'
+            }
+        )
+        
+        
+        fs.unlinkSync(req.files.image.tempFilePath)
+       
+        res.status(200).json({image: {src: result.secure_url}})
+    } catch (error) {
+        console.log(error);
+        res.send('err')
+    }
+}
+
+module.exports=uploadProductImage

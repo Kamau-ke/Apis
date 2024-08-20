@@ -7,7 +7,17 @@ const notFound=require('./middleware/notFound')
 const productRoutes=require('./routes/product')
 const fileUpload=require('express-fileupload')
 const errorHandlerMiddleware=require('./middleware/errorHandler')
-app.use(fileUpload())
+const cloudinary=require('cloudinary').v2
+
+cloudinary.config({
+    cloud_name: process.env.CLOUD_NAME, 
+    api_key: process.env.CLOUD_API_KEY, 
+    api_secret: process.env.CLOUD_API_SECRET 
+})
+
+app.use(fileUpload({
+    useTempFiles:true
+}))
 
 app.use(express.json())
 app.use('/api/v1/product', productRoutes)
