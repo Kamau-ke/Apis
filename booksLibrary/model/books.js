@@ -42,6 +42,10 @@ const bookSchema=new mongoose.Schema({
         type:mongoose.Types.ObjectId,
         ref:'User',
         required:[true, 'please provide user']
+    },
+    image:{
+        type:String,
+        required:[true, 'Please upload image']
     }
 }, {timestamps:true})
 
