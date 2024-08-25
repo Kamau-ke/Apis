@@ -25,6 +25,16 @@ const singleItemSchema=new mongoose.Schema({
         type:String,
         required:[true, 'Provide image']
     },
+    quantity:{
+        type:Number,
+        default:0,
+        required:true
+    },
+    product:{
+        type:mongoose.Types.ObjectId,
+        ref:'Product',
+        required:true
+    }
   
 })
 

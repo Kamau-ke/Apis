@@ -1,11 +1,11 @@
 const customApiError=require('./customApiError')
 const {StatusCodes}=require('http-status-codes')
 
-class badRequest extends customApiError{
+class unAuthorized extends customApiError{
     constructor(message){
         super(message)
-        this.statusCode=StatusCodes.BAD_REQUEST
+        this.statusCode=StatusCodes.UNAUTHORIZED
     }
 }
 
-module.exports=badRequest
+module.exports=unAuthorized
