@@ -1,4 +1,4 @@
-const Product=require('../models/products')
+const Product=require('../models/Products')
 const {StatusCodes}=require('http-status-codes')
 const badRequest=require('../errors/badRequest')
 

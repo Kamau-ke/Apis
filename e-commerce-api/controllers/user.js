@@ -1,4 +1,4 @@
-const User=require('../models/user')
+const User=require('../models/User')
 const badRequest=require('../errors/badRequest')
 const unAuthorized=require('../errors/unAuthorized')
 const jwt=require('jsonwebtoken')
