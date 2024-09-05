@@ -8,8 +8,11 @@ const notFoundMiddleware=require('./middlewares/notFound')
 const errorHandlerMiddleware=require('./middlewares/errorHandler')
 const productsRouter=require('./routes/product')
 const reviewRouter=require('./routes/review')
+const cookieParser=require('cookie-parser')
+
 app.use(express.static('./public'))
 app.use(express.json())
+app.use(cookieParser(process.env.JWT_SECRET));
 
 app.use('/api/v1/users', authUserRoutes)
 app.use('/api/v1/products', productsRouter)

@@ -43,4 +43,8 @@ userSchema.methods.comparePassword=async function(candidatePassword){
     return isMatch
 }
 
+userSchema.methods.createToken=async function (user){
+    
+}
+
 module.exports=mongoose.model('User', userSchema)
