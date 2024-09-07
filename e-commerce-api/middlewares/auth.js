@@ -20,9 +20,9 @@ const authenticateUser=async (req, res, next)=>{
     }
 }
 
-const authorizeRole= (...roles)=>{
+const authorizePermission= (...roles)=>{
     return(req, res, next)=>{
-        if(!roles){
+        if(!roles.includes(req.user.role)){
             throw new unAuthorized('un authorized to access this route')
         }
         next()
@@ -31,5 +31,5 @@ const authorizeRole= (...roles)=>{
 
 
 module.exports={
-    authenticateUser, authorizeRole
+    authenticateUser, authorizePermission
 }
